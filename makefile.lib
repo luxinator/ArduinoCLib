@@ -1,0 +1,31 @@
+CC=avr-gcc
+CXX=avr-g++
+MCU=-mmcu=atmega328p
+CPU_SPEED=-DF_CPU=16000000UL
+CFLAGS=-I./source/ $(MCU) $(CPU_SPEED) -Os -w -Wall -fno-exceptions -ffunction-sections -fdata-sections
+BOARD=arduino
+
+C_SOURCES = $(wildcard source/*.c)
+CXX_SOURCES = $(wildcard source/*.cpp)
+
+C_OBJECTS = $(patsubst %.c,%.o,$(C_SOURCES))
+CXX_OBJECTS = $(patsubst %.cpp,%.o,$(CXX_SOURCES) )
+
+LIBNAME=lib$(BOARD).a
+INCDIR=./include/
+
+
+default: $(C_OBJECTS) $(CXX_OBJECTS) 
+	avr-ar rcs $(LIBNAME) $^
+	
+
+
+%.o : %.c
+	$(CC) $< $(CFLAGS) -c -o $@
+
+%.o : %.cpp
+	$(CXX) $< $(CFLAGS) -c -o $@
+clean:
+	rm $(LIBNAME)
+	rm -rf $(INCDIR)
+	rm -f source/*.o

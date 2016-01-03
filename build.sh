@@ -9,6 +9,31 @@ ArduinoGIT="https://github.com/arduino/Arduino"
 ArduinoSource="Arduino/hardware/arduino/avr/cores/arduino/"
 Board="Arduino/hardware/arduino/avr/variants/standard/"
 
+
+for i in "$@"
+do
+case $i in
+    --clean*)
+    CLEAN=true
+    shift # past argument=value
+    ;;
+    *)
+            # unknown option
+    ;;
+esac
+done
+
+if [ $CLEAN ]
+then
+	echo "Cleaning ..."
+	rm -rf "Arduino"
+	rm -rf "source"
+	rm -rf "libarduino.a"
+	rm -rf "include"
+	echo "Done!"
+	exit
+fi
+
 #GET arduino  sources:
 echo Getting Arduino library sources
 

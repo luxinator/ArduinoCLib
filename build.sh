@@ -7,6 +7,7 @@
 
 ArduinoGIT="https://github.com/arduino/Arduino"
 ArduinoSource="Arduino/hardware/arduino/avr/cores/arduino/"
+ArduinoLibraries="/home/lucas/Arduino/CUSTOM/ArduinoLib/Arduino/hardware/arduino/avr/libraries"
 Board="Arduino/hardware/arduino/avr/variants/standard/"
 
 
@@ -69,6 +70,22 @@ fi
 echo Copying needed files to source dir
 cp -R $ArduinoSource/* ./source/
 cp -R $Board/* ./source/
+
+cp -R $ArduinoLibraries/EEPROM/EEPROM.h ./source/
+
+cp -R $ArduinoLibraries/HID/HID.h ./source/
+cp -R $ArduinoLibraries/HID/HID.cpp ./source/
+
+cp -R $ArduinoLibraries/SoftwareSerial/SoftwareSerial.h ./source/
+cp -R $ArduinoLibraries/SoftwareSerial/SoftwareSerial.cpp ./source/
+
+cp -R $ArduinoLibraries/SPI/SPI.h ./source/
+cp -R $ArduinoLibraries/SPI/SPI.cpp ./source/
+
+cp -R $ArduinoLibraries/Wire/Wire.h ./source/
+cp -R $ArduinoLibraries/Wire/Wire.cpp ./source/
+cp -R $ArduinoLibraries/Wire/utility/twi.c ./source/
+cp -R $ArduinoLibraries/Wire/utility/twi.h ./source/
 
 
 if [ ! -d "include" ] 

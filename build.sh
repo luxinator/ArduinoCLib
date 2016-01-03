@@ -13,9 +13,20 @@ Board="Arduino/hardware/arduino/avr/variants/standard/"
 for i in "$@"
 do
 case $i in
-    --clean*)
+    -c|-clean*)
     CLEAN=true
     shift # past argument=value
+    ;;
+    -h|-help*)
+	echo ""
+    echo "This script will pull the Arduino Library from Github"
+    echo "And build a libarduino.a file and an header directory"
+    echo "Options: "
+    echo " -c,-clean: Cleans directory"
+    echo " -h,-help:  Show this help text"
+    echo ""
+    shift # past argument=value
+    exit
     ;;
     *)
             # unknown option

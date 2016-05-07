@@ -7,7 +7,7 @@
 
 ArduinoGIT="https://github.com/arduino/Arduino"
 ArduinoSource="Arduino/hardware/arduino/avr/cores/arduino/"
-ArduinoLibraries="/home/lucas/Arduino/CUSTOM/ArduinoLib/Arduino/hardware/arduino/avr/libraries"
+ArduinoLibraries="Arduino/hardware/arduino/avr/libraries"
 Board="Arduino/hardware/arduino/avr/variants/standard/"
 
 
@@ -71,21 +71,21 @@ echo Copying needed files to source dir
 cp -R $ArduinoSource/* ./source/
 cp -R $Board/* ./source/
 
-cp -R $ArduinoLibraries/EEPROM/EEPROM.h ./source/
+cp -R $ArduinoLibraries/EEPROM/src/EEPROM.h ./source/
 
-cp -R $ArduinoLibraries/HID/HID.h ./source/
-cp -R $ArduinoLibraries/HID/HID.cpp ./source/
+cp -R $ArduinoLibraries/HID/src/HID.h ./source/
+cp -R $ArduinoLibraries/HID/src/HID.cpp ./source/
 
-cp -R $ArduinoLibraries/SoftwareSerial/SoftwareSerial.h ./source/
-cp -R $ArduinoLibraries/SoftwareSerial/SoftwareSerial.cpp ./source/
+cp -R $ArduinoLibraries/SoftwareSerial/src/SoftwareSerial.h ./source/
+cp -R $ArduinoLibraries/SoftwareSerial/src/SoftwareSerial.cpp ./source/
 
-cp -R $ArduinoLibraries/SPI/SPI.h ./source/
-cp -R $ArduinoLibraries/SPI/SPI.cpp ./source/
+cp -R $ArduinoLibraries/SPI/src/SPI.h ./source/
+cp -R $ArduinoLibraries/SPI/src/SPI.cpp ./source/
 
-cp -R $ArduinoLibraries/Wire/Wire.h ./source/
-cp -R $ArduinoLibraries/Wire/Wire.cpp ./source/
-cp -R $ArduinoLibraries/Wire/utility/twi.c ./source/
-cp -R $ArduinoLibraries/Wire/utility/twi.h ./source/
+cp -R $ArduinoLibraries/Wire/src/Wire.h ./source/
+cp -R $ArduinoLibraries/Wire/src/Wire.cpp ./source/
+cp -R $ArduinoLibraries/Wire/src/utility/ ./source/
+#cp -R $ArduinoLibraries/Wire/src/utility/ ./source/
 
 
 if [ ! -d "include" ] 
